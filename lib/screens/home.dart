@@ -45,7 +45,6 @@ class _HomeState extends State<Home> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Add new task logic
         },
         backgroundColor: secondaryColor,
         child: Icon(Icons.add),
