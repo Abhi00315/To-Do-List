@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
-const Color tdRed = Color(0xFFDA4040);
-const Color tdBlue = Color(0xFF5F52EE);
+// New Color Scheme
+const Color primaryColor = Color(0xFF6200EA);
+const Color secondaryColor = Color(0xFF03DAC6);
+const Color backgroundColor = Color(0xFFF2F2F2);
+const Color taskDoneColor = Color(0xFF4CAF50);
+const Color taskPendingColor = Color(0xFF6200EA);
 
-const Color tdBlack = Color(0xFF3A3A3A);
-const Color tdGrey = Color(0xFF717171);
-
-const Color tdBGColor = Color(0xFFEEEFF5);
+const Color textColor = Color(0xFF333333);
+const Color hintColor = Color(0xFF757575);

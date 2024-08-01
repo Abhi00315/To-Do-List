@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-
 import '../model/todo.dart';
 import '../constants/colors.dart';
 
 class ToDoItem extends StatelessWidget {
   final ToDo todo;
-  final onToDoChanged;
-  final onDeleteItem;
+  final Function onToDoChanged;
+  final Function onDeleteItem;
 
   const ToDoItem({
     Key? key,
@@ -17,48 +16,36 @@ class ToDoItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(bottom: 20),
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15),
+      ),
+      elevation: 5,
+      margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: ListTile(
-        onTap: () {
-          // print('Clicked on Todo Item.');
-          onToDoChanged(todo);
-        },
+        onTap: () => onToDoChanged(todo),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(15),
         ),
-        contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-        tileColor: Colors.white,
+        contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        tileColor: todo.isDone ? taskDoneColor.withOpacity(0.2) : taskPendingColor.withOpacity(0.1),
         leading: Icon(
-          todo.isDone ? Icons.check_box : Icons.check_box_outline_blank,
-          color: tdBlue,
+          todo.isDone ? Icons.check_circle : Icons.radio_button_unchecked,
+          color: todo.isDone ? taskDoneColor : taskPendingColor,
+          size: 30,
         ),
         title: Text(
           todo.todoText!,
           style: TextStyle(
-            fontSize: 16,
-            color: tdBlack,
+            fontSize: 18,
+            fontWeight: FontWeight.w500,
+            color: textColor,
             decoration: todo.isDone ? TextDecoration.lineThrough : null,
           ),
         ),
-        trailing: Container(
-          padding: EdgeInsets.all(0),
-          margin: EdgeInsets.symmetric(vertical: 12),
-          height: 35,
-          width: 35,
-          decoration: BoxDecoration(
-            color: tdRed,
-            borderRadius: BorderRadius.circular(5),
-          ),
-          child: IconButton(
-            color: Colors.white,
-            iconSize: 18,
-            icon: Icon(Icons.delete),
-            onPressed: () {
-              // print('Clicked on delete icon');
-              onDeleteItem(todo.id);
-            },
-          ),
+        trailing: IconButton(
+          icon: Icon(Icons.delete, color: Colors.redAccent),
+          onPressed: () => onDeleteItem(todo.id),
         ),
       ),
     );
