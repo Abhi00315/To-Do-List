@@ -11,7 +11,7 @@ A simple Flutter application for managing to-do tasks. This app allows users to 
 
 ## Screenshots
 
-![App Screenshot](url-to-screenshot)  *(Replace with actual screenshot URL)*
+![App Screenshot](assets/images/ToDoScreenshot.png)  *(Replace with actual screenshot URL)*
 
 ## Getting Started
 
