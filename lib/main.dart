@@ -19,10 +19,20 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'ToDo App',
       theme: ThemeData(
-        primaryColor: primaryColor,
-        accentColor: secondaryColor,
-        backgroundColor: backgroundColor,
+        colorScheme: ColorScheme.fromSwatch(
+          primarySwatch: Colors.deepPurple, // Default swatch if primaryColor not used
+          accentColor: secondaryColor,
+        ).copyWith(
+          primary: primaryColor,
+          secondary: secondaryColor,
+          background: backgroundColor,
+        ),
+        scaffoldBackgroundColor: backgroundColor,
         fontFamily: 'Roboto',
+        textTheme: TextTheme(
+          bodyText1: TextStyle(color: textColor),
+          bodyText2: TextStyle(color: hintColor),
+        ),
       ),
       home: Home(),
     );
