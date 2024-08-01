@@ -23,6 +23,45 @@ class _HomeState extends State<Home> {
     });
   }
 
+  void _addNewTask() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        String newTaskText = '';
+        return AlertDialog(
+          title: Text('Add New Task'),
+          content: TextField(
+            autofocus: true,
+            decoration: InputDecoration(hintText: 'Enter task here'),
+            onChanged: (text) {
+              newTaskText = text;
+            },
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                if (newTaskText.isNotEmpty) {
+                  setState(() {
+                    todosList.add(ToDo(
+                      id: DateTime.now().toString(),
+                      todoText: newTaskText,
+                    ));
+                  });
+                  Navigator.of(context).pop();
+                }
+              },
+              child: Text('Add'),
+            ),
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: Text('Cancel'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,8 +83,7 @@ class _HomeState extends State<Home> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-        },
+        onPressed: _addNewTask,
         backgroundColor: secondaryColor,
         child: Icon(Icons.add),
       ),
