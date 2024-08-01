@@ -9,3 +9,4 @@ const Color taskPendingColor = Color(0xFF1E88E5); // Cool blue
 
 const Color textColor = Color(0xFF212121); // Dark grey
 const Color hintColor = Color(0xFF9E9E9E); // Light grey
+//
