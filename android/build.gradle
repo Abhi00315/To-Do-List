@@ -1,3 +1,10 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+plugins {
+    id 'com.android.application' version '7.1.2' apply false
+    id 'org.jetbrains.kotlin.android' version '1.6.10' apply false
+}
+
 buildscript {
     ext.kotlin_version = '1.6.10'
     repositories {
@@ -6,7 +13,9 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.1.2'
+        // The classpath dependencies for the build scripts themselves.
+        // Note: Plugins that are not applied in the 'plugins' block can still be added here.
+        classpath "com.android.tools.build:gradle:7.1.2"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -18,6 +27,7 @@ allprojects {
     }
 }
 
+// Directory structure for build outputs
 rootProject.buildDir = '../build'
 subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"
@@ -26,6 +36,7 @@ subprojects {
     project.evaluationDependsOn(':app')
 }
 
+// Clean task to delete the root project build directory
 tasks.register("clean", Delete) {
     delete rootProject.buildDir
 }
