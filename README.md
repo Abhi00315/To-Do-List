@@ -26,3 +26,20 @@ A simple Flutter application for managing to-do tasks. This app allows users to 
 1. Clone this repository:
    ```bash
    git clone https://github.com/yourusername/todo-app.git
+
+2. Navigate to the project directory:
+   ```bash
+   cd todo-app
+   
+3. Install the dependencies:
+   ```bash
+   flutter pub get
+
+4. Run the app:
+   ```bash
+   flutter run
+   
+## Usage
+- Adding a Task: Click the + button at the bottom right corner to add a new task. Enter the task details and press "Add".
+- Marking a Task as Done: Tap on a task to toggle its completed state.
+- Deleting a Task: Press the delete icon next to the task to remove it from the list.
